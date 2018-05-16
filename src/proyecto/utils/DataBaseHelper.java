@@ -42,7 +42,7 @@ public class DataBaseHelper {
     public boolean loginUser(String userName, String password) {
         
         boolean existeUsuario = false;
-        
+        int rolUser;
         
         try {
             
@@ -50,7 +50,7 @@ public class DataBaseHelper {
             
             while(r.next()){
                 existeUsuario=true; 
-                user_id = r.getInt("id"); 
+                rolUser = r.getInt("rol"); 
             }
             
             
