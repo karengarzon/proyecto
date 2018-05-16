@@ -5,7 +5,9 @@
  */
 package proyecto;
 
+import java.sql.Statement;
 import proyecto.login.LogIn;
+import proyecto.utils.DataBaseHelper;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Proyecto {
     public static void main(String[] args) {
         // TODO code application logic here
         
+       
         
         new LogIn().setVisible(true);
         

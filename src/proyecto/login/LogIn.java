@@ -5,8 +5,11 @@
  */
 package proyecto.login;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import proyecto.BaseClass;
+import proyecto.utils.DataBaseHelper;
 import proyecto.utils.Utils;
 
 /**
@@ -161,12 +164,26 @@ public class LogIn extends javax.swing.JFrame{
         
         
         if(Utils.checkString(userName)){
+            
+            
             if(Utils.checkString(password)){
                 //Loguear Usuario
                 
+                
+                DataBaseHelper db = new DataBaseHelper();
+                db.Conectar();
+               
+                boolean userExiste = db.loginUser(userName,password);
+                
+                
+                
             }else{
+                
                 Utils.showDialog(this,"Introduce una contraseña","Error",JOptionPane.ERROR_MESSAGE);
             }
+            
+            
+            
         }else{
             Utils.showDialog(this,"Introduce un Nombre de Usuario Válido","Error",JOptionPane.ERROR_MESSAGE);
         }

@@ -29,6 +29,7 @@ public class Utils {
     /**
      * Metodo para mostrar un mensaje Diaolog,
      * Recibe el 
+     * @param parentComponent el JPanel o JFrame, puede ser null
      * @param mensaje mensaje del Dialog
      * @param titulo titulo del Dialog
      * @param type tipo del mensaje 
