@@ -22,7 +22,7 @@ public class Proyecto {
         // TODO code application logic here
         
        
-        
+        //poner visible el JFrame LogIn
         new LogIn().setVisible(true);
         
     }

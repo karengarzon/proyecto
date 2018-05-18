@@ -8,7 +8,7 @@ package proyecto.login;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import proyecto.BaseClass;
+import menu.Menu;
 import proyecto.utils.DataBaseHelper;
 import proyecto.utils.Utils;
 
@@ -23,6 +23,9 @@ public class LogIn extends javax.swing.JFrame{
      */
     public LogIn() {
         initComponents();
+        
+        etUserName.setText("julian");
+        etPassword.setText("qwerty");
     }
 
     /**
@@ -161,22 +164,32 @@ public class LogIn extends javax.swing.JFrame{
         String userName,password;
         userName = etUserName.getText();
         password = etPassword.getText();
-        
-        
+             
+        //Verificar si UserName esta lleno
         if(Utils.checkString(userName)){
-            
-            
+                        
+            //Verificar si Password esta lleno
             if(Utils.checkString(password)){
                 //Loguear Usuario
-                
-                
+                 
+                //Crear instancia de la Base DE Datos
                 DataBaseHelper db = new DataBaseHelper();
+                
+                //Conectar a la BAse de DAtos
                 db.Conectar();
                
+                
                 boolean userExiste = db.loginUser(userName,password);
                 
-                
-                
+                if(userExiste){  
+                    
+                    new Menu().setVisible(true);
+                    Utils.cerrarVentana(this);
+                    
+                }else{
+                    Utils.showDialog(this, ">El usuario o contraseña no son correctos", "Error",JOptionPane.ERROR_MESSAGE);
+                }                
+                         
             }else{
                 
                 Utils.showDialog(this,"Introduce una contraseña","Error",JOptionPane.ERROR_MESSAGE);

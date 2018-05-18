@@ -6,7 +6,10 @@
 package proyecto.utils;
 
 import java.awt.Component;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import proyecto.login.LogIn;
 
 /**
  *
@@ -37,6 +40,15 @@ public class Utils {
     public static void showDialog(Component parentComponent,String mensaje,String titulo,int type) {
         JOptionPane.showMessageDialog(parentComponent, mensaje, titulo, type);
     }
+
+    
+    public static void cerrarVentana(JFrame aThis) {
+        
+        
+        aThis.dispose();
+        
+    }
+    
     
     
     
