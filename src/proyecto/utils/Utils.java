@@ -9,7 +9,9 @@ import java.awt.Component;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import proyecto.login.LogIn;
+import proyecto.proveedores.PanelAddProveedor;
 
 /**
  *
@@ -42,11 +44,36 @@ public class Utils {
     }
 
     
-    public static void cerrarVentana(JFrame aThis) {
+    public static void cerrarVentana(JFrame aThis) {        
+            aThis.dispose();        
+    }
+
+    
+    /**
+     * 
+     * @param parentComponent
+     * @param mensaje
+     * @return si = 0 no = 1
+     */
+    public static int showYesNoDialog(Component parentComponent, String mensaje) {
         
+        return JOptionPane.showConfirmDialog(parentComponent, mensaje,"",JOptionPane.YES_NO_OPTION);
         
-        aThis.dispose();
+    }
+
+    public static void clearEditTexts(JTextField ... fields) {
         
+        for (JTextField f : fields){
+            f.setText("");
+        }
+    }
+
+    public static boolean checkEditTexts(JTextField ... fields) {
+        boolean pasa = true;
+        for (JTextField f : fields){              
+            pasa = checkString(f.getText());
+        }            
+        return pasa;
     }
     
     
